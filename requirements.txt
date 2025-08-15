@@ -1,0 +1,15 @@
+biopython
+langchain
+langgraph
+fastapi
+uvicorn
+langchain-text-splitters
+langchain-community
+langchain-huggingface
+langchain_chroma
+python-dotenv
+pandas~=2.3.1
+numpy~=2.3.2
+transformers
+torch
+sentence-transformers
