@@ -72,12 +72,13 @@ async def get():
     return HTMLResponse(html)
 
 
-# WebSocket endpoint for real-time streaming
+#
+#
+# # WebSocket endpoint for real-time streaming
 async def websocket_endpoint(websocket: WebSocket, thread_id: str):
     config = {"configurable": {"thread_id": thread_id}}
     await websocket.accept()
     while True:
         data = await websocket.receive_text()
-        async for event in graph.astream({"messages": [data]}, config=config, stream_mode="messages"):
-            await websocket.send_text(event[0].content)
-
+        result = agent_executor.ainvoke({"messages": [data]}, config=config, stream_mode="messages")
+        await websocket.send_text(result["messages"][-1].content)
