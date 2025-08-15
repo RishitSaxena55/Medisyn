@@ -5,6 +5,7 @@ load_dotenv()
 from fastapi import FastAPI
 from graph import graph
 from pydantic import BaseModel
+from agent import *
 
 app = FastAPI()
 
