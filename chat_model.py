@@ -1,7 +1,7 @@
 from langchain_huggingface import ChatHuggingFace, HuggingFacePipeline
 
 llm = HuggingFacePipeline.from_model_id(
-    model_id="TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+    model_id="Qwen/Qwen2.5-3B-Instruct",
     task="text-generation",
     pipeline_kwargs=dict(
         max_new_tokens=512,

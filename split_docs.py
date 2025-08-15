@@ -1,11 +1,14 @@
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from load_docs import docs
+from load_docs import *
 
-text_splitter = RecursiveCharacterTextSplitter(
-    chunk_size=1000,  # chunk size (characters)
-    chunk_overlap=200,  # chunk overlap (characters)
-    add_start_index=True,  # track index in original document
-)
-all_splits = text_splitter.split_documents(docs)
 
-print(f"Split documents into {len(all_splits)} sub-documents.")
+def split_docs(docs, chunk_size=1000, chunk_overlap=200):
+
+    text_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=chunk_size,
+        chunk_overlap=chunk_overlap,
+        add_start_index=True
+    )
+    all_splits = text_splitter.split_documents(docs)
+    print(f"Split documents into {len(all_splits)} sub-documents.")
+    return all_splits

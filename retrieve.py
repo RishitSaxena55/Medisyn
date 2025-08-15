@@ -1,5 +1,4 @@
 from langchain_core.tools import tool
-from load_docs import docs
 from chroma import vector_store
 
 
