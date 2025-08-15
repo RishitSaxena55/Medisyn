@@ -15,10 +15,6 @@ def search(query):
     return results
 
 
-studies = search("Progeria")
-studiesIdList = studies['IdList']
-
-
 def fetch_details(id_list):
     ids = ','.join(id_list)
     Entrez.email = 'email@example.com'
@@ -29,34 +25,39 @@ def fetch_details(id_list):
     return results
 
 
-docs = []
+def load_docs(topic: str):
+    studies = search(topic)
+    studiesIdList = studies['IdList']
+    docs = []
 
-chunk_size = 10000
-for chunk_i in range(0, len(studiesIdList), chunk_size):
-    chunk = studiesIdList[chunk_i:chunk_i + chunk_size]
-    papers = fetch_details(chunk)
+    chunk_size = 10000
+    for chunk_i in range(0, len(studiesIdList), chunk_size):
+        chunk = studiesIdList[chunk_i:chunk_i + chunk_size]
+        papers = fetch_details(chunk)
 
-    for paper in papers['PubmedArticle']:
-        # Extract content
-        title = paper['MedlineCitation']['Article']['ArticleTitle']
-        try:
-            abstract = paper['MedlineCitation']['Article']['Abstract']['AbstractText'][0]
-        except:
-            abstract = "No Abstract"
+        for paper in papers['PubmedArticle']:
+            title = paper['MedlineCitation']['Article']['ArticleTitle']
+            try:
+                abstract = paper['MedlineCitation']['Article']['Abstract']['AbstractText'][0]
+            except:
+                abstract = "No Abstract"
 
-        # Collect metadata
-        metadata = {
-            "title": title,
-            "journal": paper['MedlineCitation']['Article']['Journal']['Title'],
-            "language": paper['MedlineCitation']['Article']['Language'][0],
-            "pub_year": paper['MedlineCitation']['Article']['Journal']['JournalIssue']['PubDate'].get('Year',
-                                                                                                      'No Data'),
-            "pub_month": paper['MedlineCitation']['Article']['Journal']['JournalIssue']['PubDate'].get('Month',
-                                                                                                       'No Data')
-        }
+            metadata = {
+                "title": title,
+                "journal": paper['MedlineCitation']['Article']['Journal']['Title'],
+                "language": paper['MedlineCitation']['Article']['Language'][0],
+                "pub_year": paper['MedlineCitation']['Article']['Journal']['JournalIssue']['PubDate'].get('Year',
+                                                                                                          'No Data'),
+                "pub_month": paper['MedlineCitation']['Article']['Journal']['JournalIssue']['PubDate'].get('Month',
+                                                                                                           'No Data')
+            }
 
-        # Create Document
-        doc = Document(page_content=abstract, metadata=metadata)
-        docs.append(doc)
+            doc = Document(page_content=abstract, metadata=metadata)
+            docs.append(doc)
 
-print(docs[0].page_content[:500])
+    print(docs[0].page_content[:500])
+    return docs
+
+
+
+

@@ -1,4 +1,5 @@
 from langgraph.checkpoint.memory import MemorySaver
+from graph_builder import *
 
 memory = MemorySaver()
 graph = graph_builder.compile(checkpointer=memory)

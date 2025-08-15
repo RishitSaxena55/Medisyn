@@ -13,3 +13,6 @@ numpy~=2.3.2
 transformers
 torch
 sentence-transformers
+IPython
+pydantic
+websockets
