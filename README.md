@@ -2,7 +2,7 @@
 Built a RAG Based application for answering the unanswered questions regarding some diseases or rare diseases on which medical research is going on.
 
 <div align="center">
-  <img src="image.png" width="50%">
+  <img src="image.png" width="75%">
 </div>
 
 ## Models:
