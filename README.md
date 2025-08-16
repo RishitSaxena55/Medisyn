@@ -3,6 +3,7 @@ Built a RAG Based application for answering the unanswered questions regarding s
 
 ## Models:
 1. Chat Model - TinyLlama-1.1B-Chat-v1.0 -> https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0
+   
 2. Embedding Model - sentence-transformer/all-mpnet/base/v2 -> https://huggingface.co/sentence-transformers/all-mpnet-base-v2
 
 ## Medical Research Documents
