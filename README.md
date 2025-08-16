@@ -19,8 +19,9 @@ git clone https://github.com/RishitSaxena55/Medisyn
 3. Put the key in .env file
 
 4. Install the requirements:
-'''requirements.txt
+```requirements.txt
 pip install -r requiremnts.txt
+```
   
 5. Run app.py:
 ```app
