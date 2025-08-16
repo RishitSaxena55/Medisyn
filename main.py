@@ -61,6 +61,7 @@ async def chat(input: ChatInput):
         return {"error": f"Topic '{topic}' has not been ingested yet. Call /ingest_topic first."}
 
     config = {"configurable": {"thread_id": input.thread_id}}
+    # Run sync invoke inside executor
     response = await agent_executor.ainvoke({"messages": input.messages}, config=config)
     return response["messages"][-1].content
 
@@ -72,13 +73,15 @@ async def get():
     return HTMLResponse(html)
 
 
-#
-#
-# # WebSocket endpoint for real-time streaming
+# # WebSocket endpoint
+@app.websocket("/ws/{thread_id}")
 async def websocket_endpoint(websocket: WebSocket, thread_id: str):
     config = {"configurable": {"thread_id": thread_id}}
     await websocket.accept()
     while True:
         data = await websocket.receive_text()
-        result = agent_executor.ainvoke({"messages": [data]}, config=config, stream_mode="messages")
-        await websocket.send_text(result["messages"][-1].content)
+        # Run the synchronous call in a thread
+        response = await asyncio.to_thread(
+            lambda: agent_executor.invoke({"messages": [data]}, config=config)
+        )
+        await websocket.send_text(response["messages"][-1].content)
