@@ -27,7 +27,7 @@ git clone https://github.com/RishitSaxena55/Medisyn.git
 
 4. Install the requirements:
 ```requirements.txt
-pip install -r requiremnts.txt
+pip install -r requirements.txt
 ```
 
   
