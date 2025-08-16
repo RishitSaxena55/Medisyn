@@ -16,3 +16,4 @@ sentence-transformers
 IPython
 pydantic
 websockets
+langchain-google-genai

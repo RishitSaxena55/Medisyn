@@ -6,7 +6,7 @@ llm = HuggingFacePipeline.from_model_id(
     pipeline_kwargs=dict(
         max_new_tokens=512,
         do_sample=False,
-        repetition_penalty=1.03
+        repetition_penalty=1.03,
     ),
 )
 
