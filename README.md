@@ -31,6 +31,12 @@ pip install -r requiremnts.txt
 ```app
 uvicorn main:app --reload
 ```
+
+6. Enter the Medical topic to ask questions on.
+
+7. Chat and get answers to the questions about even the rare diseases on which medical research is going on.
+
+
 > **Note:** The answers can be delayed as I have used free Open-sourced Models from hugging face. Will upgrade it to better models to make the experience faster.
 
 
