@@ -7,7 +7,7 @@ Built a RAG Based application for answering the unanswered questions regarding s
 
 ## Models:
 1. Chat Model - TinyLlama-1.1B-Chat-v1.0 -> https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0
-   
+
 2. Embedding Model - sentence-transformer/all-mpnet/base/v2 -> https://huggingface.co/sentence-transformers/all-mpnet-base-v2
 
 ## Medical Research Documents
@@ -18,21 +18,27 @@ Scraped the medical research papers from PubMed (a free resource for biomedical 
 ```git
 git clone https://github.com/RishitSaxena55/Medisyn
 ```
+
 2. Create a LangSmith account and generate a key: https://www.langchain.com/langsmith
+   
 
 3. Put the key in .env file
+   
 
 4. Install the requirements:
 ```requirements.txt
 pip install -r requiremnts.txt
 ```
+
   
 5. Run app.py:
 ```app
 uvicorn main:app --reload
 ```
 
+
 6. Enter the Medical topic to ask questions on.
+
 
 7. Chat and get answers to the questions about even the rare diseases on which medical research is going on.
 
