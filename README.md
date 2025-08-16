@@ -1,6 +1,8 @@
 # Medisyn (Medical + Synthesis)
 Built a RAG Based application for answering the unanswered questions regarding some diseases or rare diseases on which medical research is going on.
 
+![](image.png)
+
 ## Models:
 1. Chat Model - TinyLlama-1.1B-Chat-v1.0 -> https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0
    
