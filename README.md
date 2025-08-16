@@ -16,7 +16,7 @@ Scraped the medical research papers from PubMed (a free resource for biomedical 
 ## Steps to use it:
 1. Clone the repository:
 ```git
-git clone https://github.com/RishitSaxena55/Medisyn
+git clone https://github.com/RishitSaxena55/Medisyn.git
 ```
 
 2. Create a LangSmith account and generate a key: https://www.langchain.com/langsmith
