@@ -43,6 +43,3 @@ uvicorn main:app --reload
 7. Chat and get answers to the questions about even the rare diseases on which medical research is going on.
 
 
-> **Note:** The answers can be delayed as I have used free Open-sourced Models from hugging face. Will upgrade it to better models to make the experience faster.
-
-
