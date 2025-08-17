@@ -10,7 +10,7 @@ Built a RAG Based application for answering the unanswered questions regarding s
 
 2. Embedding Model - sentence-transformer/all-mpnet/base/v2 -> https://huggingface.co/sentence-transformers/all-mpnet-base-v2
 
-## Medical Research Documents
+## Medical Research Articles
 Scraped the medical research papers from PubMed (a free resource for biomedical and life sciences journal articles) via Biopython library and E-utilities documentation(https://lnkd.in/g4g3uGgN) which consists of E-Search and E-Fetch methods for retrieval.
 
 ## Steps to use it:
